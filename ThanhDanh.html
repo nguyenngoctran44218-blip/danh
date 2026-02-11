@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nguyễn Thành Danh</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #d6336c;
+            font-size: 44px;
+            min-height: 60px;
+        }
+
+        .spring-text {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #e8590c;
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #e8590c;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.88);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            animation: slideUp 1.2s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 6px;
+            font-size: 17px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ffd8a8;
+            font-size: 15px;
+        }
+
+        th {
+            background: #ff922b;
+            color: white;
+        }
+
+        td:hover {
+            background: #ffe066;
+        }
+
+        .feedback input, .feedback textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback button {
+            padding: 10px 25px;
+            background: #ff922b;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .comment {
+            background: #fff3bf;
+            border-radius: 15px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        /* === PHẦN CHATBOX TRẢ LỜI (THÊM) === */
+        .reply-btn {
+            margin-top: 5px;
+            background: #ffa94d;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: white;
+            font-size: 13px;
+        }
+
+        .reply-box {
+            margin-top: 6px;
+            display: none;
+        }
+
+        .reply-box input {
+            width: 80%;
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .reply-box button {
+            padding: 6px 12px;
+            background: #ff922b;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .reply {
+            background: #e6fcf5;
+            margin-top: 5px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(40px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1 id="typingText"></h1>
+    <div class="spring-text" id="springText"></div>
+
+    <div class="grid">
+
+        <div class="box">
+            <h2>🙋‍♂️ Giới Thiệu Bản Thân</h2>
+            <p>
+                Xin chào 👋 mình là <b>Nguyễn Thành Danh</b>.<br>
+                Mình học tập theo phong cách <b>Chill Guys</b> –  
+                nhẹ nhàng, tích cực và không áp lực 😎
+            </p>
+        </div>
+
+        <div class="box">
+            <h2>💖 Sở Thích</h2>
+            <ul>
+                <li>🎧 Nghe nhạc chill</li>
+                <li>📖 Đọc sách</li>
+                <li>🎮 Chơi game</li>
+                <li>✈️ Du lịch</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>😎 Học Theo Chill Guys</h2>
+            <ul>
+                <li>📚 Học đều mỗi ngày</li>
+                <li>🧠 Nghỉ ngơi hợp lý</li>
+                <li>🎧 Nhạc nhẹ khi học</li>
+                <li>😌 Không stress</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>🌼 Thơ Tri Ân</h2>
+            <p>
+                Dòng phấn trắng viết ước mơ xanh,<br>
+                Thầy cô soi lối bước trưởng thành.<br>
+                Mai này dẫu có đi xa nữa,<br>
+                Ơn nghĩa còn hoài mãi chẳng phai.
+            </p>
+        </div>
+
+        <div class="box full">
+            <h2>📅 Thời Khóa Biểu</h2>
+            <table>
+                <tr>
+                    <th>Tiết</th>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                    <th>Thứ 7</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>Toán</td><td>Lý</td><td>Văn</td><td>GDCD</td><td>Anh</td><td>Toán</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>Toán</td><td>Lý</td><td>Văn</td><td>GDCD</td><td>Anh</td><td>Toán</td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="background:#ffe8cc;font-weight:bold;">⏰ Ra chơi 30 phút</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>Văn</td><td>Hóa</td><td>Toán</td><td>Tin</td><td>Sinh</td><td>Văn</td>
+                </tr>
+                <tr>
+                    <td>4</td><td>Văn</td><td>Hóa</td><td>Toán</td><td>Tin</td><td>Sinh</td><td>Văn</td>
+                </tr>
+                <tr>
+                    <td>5</td><td>Anh</td><td>Sinh</td><td>Thể dục</td><td>Thể dục</td><td>SHCN</td><td>Nghỉ</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="box full">
+            <h2>💬 Góp Ý / Feedback</h2>
+            <div class="feedback">
+                <input type="text" id="name" placeholder="Tên của bạn">
+                <textarea id="message" rows="4" placeholder="Nhập lời nhắn..."></textarea><br>
+                <button onclick="addComment()">Gửi</button>
+            </div>
+            <div id="comments"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        💮 Chúc mọi người năm mới học tập thật chill 💮
+    </footer>
+
+</div>
+
+<script>
+    const text = "🌸 NGUYỄN THÀNH DANH 🌸";
+    let index = 0;
+    function typeText() {
+        if (index < text.length) {
+            document.getElementById("typingText").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeText, 120);
+        }
+    }
+    typeText();
+
+    const springLines = [
+        "🌸 Xuân an khang – Tết sum vầy 🌸",
+        "😎 Chill học – Chill sống 😎",
+        "📚 Năm mới nhiều cố gắng 📚"
+    ];
+    let line = 0;
+    setInterval(() => {
+        document.getElementById("springText").innerHTML = springLines[line];
+        line = (line + 1) % springLines.length;
+    }, 2500);
+
+    function addComment() {
+        let name = document.getElementById("name").value;
+        let message = document.getElementById("message").value;
+
+        if (name === "" || message === "") {
+            alert("Vui lòng nhập đầy đủ!");
+            return;
+        }
+
+        let c = document.createElement("div");
+        c.className = "comment";
+        c.innerHTML = `
+            <b>${name}:</b><br>${message}
+            <br>
+            <button class="reply-btn" onclick="toggleReply(this)">💬 Trả lời</button>
+            <div class="reply-box">
+                <input type="text" placeholder="Nhập phản hồi...">
+                <button onclick="sendReply(this)">Gửi</button>
+            </div>
+            <div class="replies"></div>
+        `;
+        document.getElementById("comments").appendChild(c);
+
+        document.getElementById("name").value = "";
+        document.getElementById("message").value = "";
+    }
+
+    function toggleReply(btn) {
+        let box = btn.nextElementSibling;
+        box.style.display = box.style.display === "none" || box.style.display === "" ? "block" : "none";
+    }
+
+    function sendReply(btn) {
+        let input = btn.previousElementSibling;
+        if (input.value === "") return;
+
+        let r = document.createElement("div");
+        r.className = "reply";
+        r.innerHTML = "<b>Danh:</b> " + input.value;
+
+        btn.parentElement.nextElementSibling.appendChild(r);
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
